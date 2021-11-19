@@ -18,6 +18,8 @@ row.classList.add('row');
 elem.classList.add('elem');
 colorChoiceBox.classList.add("colorChoiceBox");
 
+
+
 // appending clickable elemen
 for(let i=0; i < 16; i++){
     row.append(elem.cloneNode(true))
@@ -32,7 +34,7 @@ for(let i=0; i < 16; i++){
 let elems = document.querySelectorAll('.elem');
 
 elems.forEach(elem => {
-    elem.addEventListener('click',()=>{
+    elem.addEventListener('mouseover',()=>{
         if(selectedColor == undefined){
             alert("Please choose a color before clicking a box")
         }else{
@@ -90,7 +92,7 @@ reset.addEventListener("click",()=>{
 let howToUse = document.querySelector("#howToUse");
 
 howToUse.addEventListener("click",()=>{
-    alert("How to use \n1. Click on a colored box to choose a color \n2. With the color selected, click on one of the boxes in the grid to add or remove color \n3. Hit the reset button to start from scratch \n5. Have fun!  ");
+    alert("How to use \n1. Click on a colored box to choose a color \n2. With the color selected, move your mouse over the boxes in the grid to add or remove color \n3. Hit the reset button to start from scratch \n5. Have fun!  ");
 })
 
 
