@@ -1,0 +1,71 @@
+#container{
+    border: 2px solid; 
+    padding: 10px; 
+    display:flex; 
+    flex-direction: column; 
+    justify-content: center;
+    align-items: flex-start;
+    gap:2px;
+}
+
+.row{
+    padding: 0px; 
+    border: 0px solid; 
+    display:flex; 
+    flex-direction:row;
+    gap :2px
+}
+
+.elem{
+    padding: 15px; 
+    border: 1px solid; 
+    transition: 0.3s ease;
+}
+.elem:hover{
+    border:1px solid green;
+}
+.active{
+   transform: scale(1.2,1.2);
+}
+
+.colorChoices{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+    gap: 10px;
+}
+
+.colorChoiceBox{
+    border: 1px solid black;
+    padding: 15px;
+    transition: 0.3s ease;
+}
+
+.tomato{
+    background-color: tomato;
+}
+
+.darkGrey{
+    background-color: #424242;
+}
+
+.teal{
+    background-color: teal;
+}
+
+#reset{
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+
+#howToUse{
+    padding: 10px;
+    margin-left: 5px;
+}
+
+.colorInfo{
+    font-size: 12px;
+    margin: 0px;
+    margin-left: 10px;
+}
