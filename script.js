@@ -4,6 +4,11 @@ const colorChoices = document.querySelector('.colorChoices');
 const reset = document.querySelector("#reset");
 const rows = document.querySelector("#rows");
 const cols = document.querySelector("#cols");
+const actions = ["draw","eraseSelected","eraseAll"];
+const drawBtn = document.querySelector("#draw");
+const eraseBtn = document.querySelector("#erase");
+const eraseAll = document.querySelector("#eraseAll");
+
 
 
 // variables
@@ -11,6 +16,7 @@ let row = document.createElement("div");
 let elem = document.createElement("div");
 let colorChoiceBox = document.createElement("div");
 let selectedColor = 'tomato';
+let currentAction = actions[0];
 
 
 // adding classes to elements
@@ -18,6 +24,28 @@ row.classList.add('row');
 elem.classList.add('elem');
 colorChoiceBox.classList.add("colorChoiceBox");
 
+// draw-erase buttons logic
+drawBtn.addEventListener("click",()=>{
+    eraseAll.classList.remove('btnActive');
+    eraseBtn.classList.remove('btnActive');
+    drawBtn.classList.add('btnActive');
+   currentAction = actions[0];
+   console.log(currentAction);
+})
+eraseBtn.addEventListener("click",()=>{
+    drawBtn.classList.remove('btnActive');
+    eraseAll.classList.remove('btnActive');
+    eraseBtn.classList.add('btnActive');
+    currentAction = actions[1];
+    console.log(currentAction);
+})
+eraseAll.addEventListener("click",()=>{
+    drawBtn.classList.remove('btnActive');
+    eraseBtn.classList.remove('btnActive');
+    eraseAll.classList.add('btnActive');
+    currentAction = actions[2];
+    console.log(eraseAll.classList);
+})
 
 
 // appending clickable elemen
@@ -35,15 +63,13 @@ let elems = document.querySelectorAll('.elem');
 
 elems.forEach(elem => {
     elem.addEventListener('mouseover',()=>{
-        if(selectedColor == undefined){
-            alert("Please choose a color before clicking a box")
+        if(currentAction == "draw"){
+            elem.classList.remove(elem.classList[1]);
+            elem.classList.add(selectedColor);
+        }else if(currentAction == "eraseSelected"){
+            elem.classList.remove(selectedColor)
         }else{
-            if(elem.classList[1] == selectedColor){
-                elem.classList.remove(selectedColor)
-            }else{
-                elem.classList.remove(elem.classList[1]);
-                elem.classList.add(selectedColor);
-            }
+            elem.classList.remove(elem.classList[1]);
         }
         
 
